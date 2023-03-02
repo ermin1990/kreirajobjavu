@@ -2,6 +2,7 @@ import App from "../App";
 import AgainstClub from "../pages/AgainstClub";
 import Home from "../pages/Home";
 import MyClub from "../pages/MyClub";
+import NextMatch from "../pages/NextMatch";
 
 const routes = [
     {
@@ -20,6 +21,10 @@ const routes = [
             {
                 path: "againstclub",
                 element: <AgainstClub/>
+            },
+            {
+                path:"nextmatch",
+                element: <NextMatch/>
             }
         ]
     }

@@ -1,83 +1,67 @@
-import React from 'react'
+import React, { useEffect, useState } from "react";
 
 function MyClub() {
+  const [myclubinfo, setMyClubInfo] = useState({});
 
-  state = {
-    clubName: '',
-    clubLocation: '',
-    clubColor: ''
-  };
-
-  componentDidMount(){
-    const myClub = localStorage.getItem('myClub');
-    if (myClub) {
-      const { clubName, clubLocation, clubColor } = JSON.parse(myClub);
-      this.setState({ clubName, clubLocation, clubColor });
+  useEffect(() => {
+    const myClub = localStorage.getItem("myClub");
+    if (myClub != null) {
+      setMyClubInfo(JSON.parse(myClub));
     }
-  }
+  }, []);
 
-  handleInputChange = event => {
-    const { name, value } = event.target;
-    this.setState({ [name]: value });
+  const inputHandler = (e) => {
+    let copyclubinfo = { ...myclubinfo };
+    copyclubinfo[e.target.name] = e.target.value;
+    setMyClubInfo(copyclubinfo);
   };
 
-  handleFormSubmit = event => {
-    event.preventDefault();
-    const { clubName, clubLocation, clubColor } = this.state;
-    localStorage.setItem('myClub', JSON.stringify({ clubName, clubLocation, clubColor }));
+  const addMyClub = (e) => {
+    e.preventDefault();
+    localStorage.setItem("myClub", JSON.stringify(myclubinfo));
   };
-
 
   return (
-    <div className='addMyClub'>
-      
+    <div className="addMyClub container">
+      <form>
+        <p>Unesite ime vašeg kluba</p>
+        <input
+          type="text"
+          name="clubName"
+          value={myclubinfo.clubName}
+          onInput={inputHandler}
+          placeholder="FK..."
+        />
+        <hr />
+        <p>Unesite lokaciju vašeg kluba</p>
+        <input
+          type="text"
+          name="clubLocation"
+          value={myclubinfo.clubLocation}
+          onInput={inputHandler}
+          placeholder="npr. Mramor ili Gornje Dubrave..."
+        />
+        <hr />
+        <p>Odaberite boju vašeg kluba</p>
+        <input
+          className="inputColor form-control form-control-color"
+          value={myclubinfo.clubColor}
+          onInput={inputHandler}
+          type="color"
+          name="clubColor"
+        />
+        <br />
 
-      {clubName ? (
-          <div>
-            <h2>{clubName}</h2>
-            <p>Location: {clubLocation}</p>
-            <p>Color: {clubColor}</p>
-            <button onClick={() => this.setState({ clubName: '', clubLocation: '', clubColor: '' })}>
-              Delete
-            </button>
-            <button onClick={() => this.setState({ editing: true })}>Edit</button>
-          </div>
-        ) : (
-          <form onSubmit={this.handleFormSubmit}>
-          <div>
-          <label htmlFor="clubName">Club Name:</label>
-          <input type="text" id="clubName" name="clubName" value={clubName} onChange={this.handleInputChange} />
-          </div>
-          <div>
-          <label htmlFor="clubLocation">Club Location:</label>
-          <input type="text" id="clubLocation" name="clubLocation" value={clubLocation} onChange={this.handleInputChange} />
-          </div>
-          <div>
-          <label htmlFor="clubColor">Club Color:</label>
-          <input type="text" id="clubColor" name="clubColor" value={clubColor} onChange={this.handleInputChange} />
-          </div>
-          <button type="submit">Save</button>
-          </form>
-          )}
-          {this.state.editing && (
-      <form onSubmit={this.handleFormSubmit}>
-        <div>
-          <label htmlFor="clubName">Club Name:</label>
-          <input type="text" id="clubName" name="clubName" value={clubName} onChange={this.handleInputChange} />
-        </div>
-        <div>
-          <label htmlFor="clubLocation">Club Location:</label>
-          <input type="text" id="clubLocation" name="clubLocation" value={clubLocation} onChange={this.handleInputChange} />
-        </div>
-        <div>
-          <label htmlFor="clubColor">Club Color:</label>
-          <input type="text" id="clubColor" name="clubColor" value={clubColor} onChange={this.handleInputChange} />
-        </div>
-        <button type="submit">Save</button>
+        <button
+          onClick={addMyClub}
+          className="btn btn-sm bg-dark text-white p-2"
+          type="sumbit"
+        >
+          Spremi podatke
+        </button>
       </form>
-    )}
-  </div>
-  )
+    </div>
+  );
 }
 
-export default MyClub
+export default MyClub;
