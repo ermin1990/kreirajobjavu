@@ -276,6 +276,29 @@ button {
     flex-grow: 2;
 }
 
+.glavniDiv{
+    font-size: 1.6rem;
+    text-align: center;
+    color: white;
+}
+
+.glavniDiv a{
+    text-decoration: none;
+    color: white;
+}
+
+.glavniDiv a:hover{
+    color: beige;
+}
+
+
+.addMyClub{
+    background-color: white;
+    width: max-content;
+    margin: auto;
+    padding: 10px;
+}
+
 @media(max-width: 800px){
     .kluboviInput {
         display: flex;

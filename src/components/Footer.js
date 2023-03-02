@@ -6,8 +6,9 @@ function Footer() {
         <div className="footerHolder">
             <div className="social">
                 Zapratite nas na društvenim mrežama Instagram:
-                <a href="https://www.instagram.com/kreirajObjavuZaKlub" target="_blank">@kreirajObjavuZaKlub</a><br />
-                <h4>Verzija 1.0</h4>
+                <a href="https://www.instagram.com/kreirajObjavuZaKlub" target="blank"><b>@kreirajObjavuZaKlub</b></a><br />
+                <h4>Verzija 2.0</h4>
+                <p>Kreirao: Ermin Selimović</p>
             </div>
         </div>
     </footer>
