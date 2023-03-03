@@ -2,7 +2,7 @@ import App from "../App";
 import AgainstClub from "../pages/AgainstClub";
 import Home from "../pages/Home";
 import MyClub from "../pages/MyClub";
-import NextMatch from "../pages/NextMatch";
+import NextMatch from "../pages/NextMatch/NextMatch";
 
 const routes = [
     {

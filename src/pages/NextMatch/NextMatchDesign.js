@@ -1,5 +1,5 @@
 import React from 'react'
-import '../css/nextmatchdesign.css'
+import './nextmatchpage.scss'
 
 
 function NextMatchDesign() {
