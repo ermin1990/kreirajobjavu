@@ -38,17 +38,35 @@
     border-radius: 5px;
     .teams {
         display: flex;
+        .resultInput {
+            width: 40px;
+            margin: 10px;
+        }
         .firstTeam {
             flex-grow: 1;
             margin: 2px;
             background-color: rgb(227, 227, 227);
             padding: 5px;
+            .myPlayerEvent {
+                display: flex;
+                flex-direction: column;
+                input {
+                    margin: 3px;
+                }
+            }
         }
         .secondTeam {
             flex-grow: 1;
             margin: 2px;
             background-color: rgb(227, 227, 227);
             padding: 5px;
+            .againstPlayerEvent {
+                display: flex;
+                flex-direction: column;
+                input {
+                    margin: 3px;
+                }
+            }
         }
     }
 }

@@ -6,7 +6,9 @@ function NextMatchDesign() {
     return (
         
         <>
-        <div className="designHoder"></div>
+        <div className="designHoder">
+          Dizajn
+        </div>
         </>
   )
 }

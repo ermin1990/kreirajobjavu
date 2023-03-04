@@ -3,6 +3,7 @@ import AgainstClub from "../pages/AgainstClub";
 import Home from "../pages/Home";
 import MyClub from "../pages/MyClub";
 import NextMatch from "../pages/NextMatch/NextMatch";
+import NextMatchDesign from "../pages/NextMatch/NextMatchDesign";
 
 const routes = [
     {
@@ -25,9 +26,14 @@ const routes = [
             {
                 path:"nextmatch",
                 element: <NextMatch/>
+                
+            },
+            {
+                path:"nextmatch/design",
+                element:<NextMatchDesign/>
+            }
+            ]
             }
         ]
-    }
-]
 
 export default routes
