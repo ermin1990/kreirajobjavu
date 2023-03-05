@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
 
+import '../css/myclub.scss'
+
 function MyClub() {
   const [myclubinfo, setMyClubInfo] = useState({});
 
@@ -22,7 +24,10 @@ function MyClub() {
   };
 
   return (
+    <>
     <div className="addMyClub container">
+        <h4 className="text-center">Unesite podatke o vašem klubu</h4>
+
       <form>
         <p>Unesite ime vašeg kluba</p>
         <input
@@ -61,6 +66,7 @@ function MyClub() {
         </button>
       </form>
     </div>
+    </>
   );
 }
 

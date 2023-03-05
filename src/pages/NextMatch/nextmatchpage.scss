@@ -1,72 +1,74 @@
-.nextMatchDesign_form {
-    width: 80%;
-    margin: auto;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    div {
-        padding: 8px;
-        .koloInput {
-            width: 60px;
-        }
-    }
-    input {
-        width: 300px;
-        height: 40px;
-        padding: 5px;
-    }
-    select {
-        height: 40px;
-    }
-}
-
 .ligapodaci {
+    background-color: #292c35;
+    padding: 2rem;
+    h4 {
+        font-size: 2.0rem;
+        font-weight: bold;
+        margin-bottom: 3rem;
+    }
+    .nextMatchDesign_form {
+        max-width: 40rem;
+        margin: 0 auto;
+        div {
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 2rem;
+            label {
+                font-size: 1.4rem;
+                margin-bottom: 0.6rem;
+            }
+            input[type='text'],
+            input[type='number'],
+            input[type='datetime-local'] {
+                background-color: #fff;
+                border: none;
+                border-radius: 0.3rem;
+                font-size: 1.1rem;
+                padding: 1.2rem;
+                width: 100%;
+            }
+            .koloInput {
+                width: 10rem;
+            }
+            select {
+                background-color: #fff;
+                border: none;
+                border-radius: 0.3rem;
+                font-size: 1.1rem;
+                padding: 1.2rem;
+                width: 100%;
+            }
+        }
+    }
     .leagueSaveBtn {
-        height: 40px;
-        background-color: white;
-        color: black;
-        border-radius: 5px;
+        background-color: #fff;
+        border: none;
+        border-radius: 0.3rem;
+        color: #292c35;
+        font-size: 1.2rem;
+        padding: 1.2rem 2.4rem;
+        transition: background-color 0.3s ease;
+        &:hover {
+            background-color: #eaeaea;
+        }
+    }
+    a {
+        color: #fff;
+        display: block;
+        font-size: 1.6rem;
+        margin-top: 2rem;
+        text-decoration: underline;
     }
 }
 
-.unosRezultata {
-    width: max-content;
-    padding: 10px;
-    margin: auto;
-    margin-bottom: 10px;
-    background-color: white;
-    border-radius: 5px;
-    .teams {
-        display: flex;
-        .resultInput {
-            width: 40px;
-            margin: 10px;
+@media only screen and (max-width: 768px) {
+    .ligapodaci {
+        padding: 2rem;
+        h4 {
+            font-size: 2rem;
         }
-        .firstTeam {
-            flex-grow: 1;
-            margin: 2px;
-            background-color: rgb(227, 227, 227);
-            padding: 5px;
-            .myPlayerEvent {
-                display: flex;
-                flex-direction: column;
-                input {
-                    margin: 3px;
-                }
-            }
-        }
-        .secondTeam {
-            flex-grow: 1;
-            margin: 2px;
-            background-color: rgb(227, 227, 227);
-            padding: 5px;
-            .againstPlayerEvent {
-                display: flex;
-                flex-direction: column;
-                input {
-                    margin: 3px;
-                }
-            }
+        .nextMatchDesign_form {
+            max-width: 100%;
         }
     }
 }

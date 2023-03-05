@@ -1,9 +1,8 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;600;700&display=swap");
 body {
     font-family: "Poppins", sans-serif;
-    margin: 0 auto;
-    background: rgb(13, 66, 110);
-    background: linear-gradient(82deg, rgba(13, 66, 110, 1) 0%, rgba(0, 49, 73, 1) 100%);
+    background: #292c35
+    /* background: linear-gradient(82deg, rgba(13, 66, 110, 1) 0%, rgba(0, 49, 73, 1) 100%); */
 }
 
 header {
@@ -41,11 +40,6 @@ header {
 .info {
     padding: 20px;
     margin-bottom: 10px;
-}
-
-footer {
-    height: max-content;
-    padding: 10px;
 }
 
 .footerHolder {
@@ -178,22 +172,25 @@ footer {
 
 /* FORMA ZA UNOS */
 
-.forma {
+
+/* .forma {
     width: 80%;
     padding: 10px;
     margin: 10px auto;
     display: flex;
     flex-direction: column;
-}
+} */
 
-.infoLige {
+
+/* .infoLige {
     flex-grow: 1;
     display: flex;
     flex-direction: column;
     padding-bottom: 10px;
-}
+} */
 
-.forma input {
+
+/* .forma input {
     flex-grow: 1;
     outline: none;
     font-size: 25px;
@@ -203,14 +200,15 @@ footer {
     border: none;
     background-color: aliceblue;
     padding: 7px;
-}
+} */
 
-select {
+
+/* select {
     font-size: 15px;
     height: 30px;
     height: 60px;
     justify-self: center;
-}
+} */
 
 
 /* .kluboviInput {
@@ -275,7 +273,8 @@ select {
     flex-grow: 2;
 } */
 
-.glavniDiv {
+
+/* .glavniDiv {
     font-size: 1.6rem;
     text-align: center;
     color: white;
@@ -298,8 +297,10 @@ select {
 .addMyClub form input {
     width: 100%;
 }
+ */
 
-.mainMenu {
+
+/* .mainMenu {
     border-bottom: 1px solid white;
     margin-bottom: 10px;
 }
@@ -312,7 +313,7 @@ select {
     background-color: rgba(245, 245, 245, 0.313);
     padding: 5px;
     border-radius: 5px;
-}
+} */
 
 .inputColor {
     width: 100px !important;
@@ -320,23 +321,15 @@ select {
 }
 
 @media(max-width: 800px) {
-    .kluboviInput {
-        display: flex;
-        flex-direction: column;
-    }
     button {
         width: max-content + 10px;
-        margin: 10px auto;
     }
     .headerHolder {
         width: 95%;
     }
-    .forma {
-        width: 95%;
-    }
     footer {
-        margin-top: 40px;
         padding: 10px;
+        margin-bottom: 20px;
     }
     .social {
         margin: 0 auto;

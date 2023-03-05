@@ -1,0 +1,69 @@
+        .glavniDiv {
+            padding: 2rem;
+            .firstinfoclub {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                p {
+                    font-size: 1.4rem;
+                    margin-bottom: 1rem;
+                    text-align: center;
+                }
+                .dodajKlubLink {
+                    margin-top: 1rem;
+                    text-align: center;
+                }
+            }
+            .welcomeClub {
+                text-align: center;
+                .clubName {
+                    font-size: 3rem;
+                    margin-bottom: 0.5rem;
+                    color: #ffffff;
+                }
+                .clubLocation {
+                    font-size: 1.2rem;
+                    margin-bottom: 2rem;
+                    color: #ffffff;
+                }
+                .clubDivider {
+                    margin: 2rem auto;
+                    width: 50%;
+                    border: 1px solid #d3d3d3;
+                }
+                .clubGreeting {
+                    font-size: 2rem;
+                    font-weight: bold;
+                    color: #ffffff;
+                }
+            }
+        }
+        
+        @media only screen and (max-width: 768px) {
+            .glavniDiv {
+                padding: 1rem;
+                .firstinfoclub {
+                    p {
+                        font-size: 1.2rem;
+                        margin-bottom: 0.5rem;
+                    }
+                }
+                .welcomeClub {
+                    .clubName {
+                        font-size: 2rem;
+                        margin-bottom: 0.5rem;
+                    }
+                    .clubLocation {
+                        font-size: 1rem;
+                        margin-bottom: 2rem;
+                    }
+                    .clubDivider {
+                        margin: 1rem auto;
+                        width: 75%;
+                    }
+                    .clubGreeting {
+                        font-size: 1.5rem;
+                    }
+                }
+            }
+        }

@@ -1,0 +1,40 @@
+.mainMenu {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 999;
+    background-color: #292c35;
+    padding: 0.5rem;
+}
+
+.navbar {
+    display: flex;
+}
+
+.nav-link {
+    color: #fff;
+    font-size: 0.6rem;
+    text-decoration: none;
+    padding: 0.6rem;
+    transition: background-color 0.3s ease;
+    &:hover {
+        background-color: #545769;
+    }
+    &.active {
+        background-color: #545769;
+    }
+}
+
+@media only screen and (min-width: 768px) {
+    .mainMenu {
+        position: static;
+        padding: 0;
+    }
+    .navbar {
+        justify-content: center;
+    }
+    .nav-link {
+        font-size: 1.2rem;
+    }
+}

@@ -1,0 +1,81 @@
+    .unosRezultata {
+        background-color: #292c35;
+        padding: 2rem;
+        border-radius: 0.3rem;
+        h4 {
+            font-size: 2.0rem;
+            font-weight: bold;
+            margin-bottom: 3rem;
+            color: #fff;
+        }
+        .teams {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            .firstTeam,
+            .secondTeam {
+                flex-basis: 45%;
+                max-width: 400px;
+                label {
+                    display: block;
+                    font-size: 1.2rem;
+                    font-weight: bold;
+                    margin-bottom: 10px;
+                    color: #fff;
+                }
+                input {
+                    display: block;
+                    width: 100%;
+                    padding: 10px;
+                    border: none;
+                    border-radius: 0.3rem;
+                    font-size: 1.2rem;
+                    margin-bottom: 10px;
+                    background-color: #fff;
+                    color: #292c35;
+                }
+                .myPlayerEvent,
+                .againstPlayerEvent {
+                    margin-top: 10px;
+                }
+            }
+        }
+        @media (max-width: 768px) {
+            .teams {
+                .firstTeam,
+                .secondTeam {
+                    flex-basis: 100%;
+                }
+            }
+        }
+    }
+    
+    .btnSavePlayers {
+        display: block;
+        width: 100%;
+        max-width: 200px;
+        margin: 0 auto;
+        margin-top: 30px;
+        padding: 10px 20px;
+        font-size: 1.2rem;
+        color: #292c35;
+        background-color: #fff;
+        border: none;
+        border-radius: 0.3rem;
+        transition: all 0.3s ease;
+        &:hover {
+            cursor: pointer;
+            background-color: #eaeaea;
+        }
+        &:focus {
+            outline: none;
+        }
+    }
+    
+    h2 {
+        text-align: center;
+        font-size: 3rem;
+        margin-bottom: 30px;
+        color: #fff;
+    }

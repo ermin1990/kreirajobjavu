@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import '../css/myclub.scss'
 
 function AgainstClub() {
   const [againstclubinfo, setAgainstClub] = useState({});
@@ -23,6 +24,7 @@ function AgainstClub() {
 
   return (
     <div className="addMyClub container">
+      <h4 className="text-center">Unesite podatke o protivničkom klubu</h4>
       <form>
         <p>Unesite ime protivničkog kluba</p>
         <input

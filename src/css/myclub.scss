@@ -1,0 +1,45 @@
+.addMyClub {
+    background-color: #292c35;
+    padding: 2rem;
+    h4 {
+        font-size: 2.0rem;
+        font-weight: bold;
+        margin-bottom: 3rem;
+        color: #fff;
+    }
+    form {
+        max-width: 40rem;
+        margin: 0 auto;
+        p {
+            font-size: 1.4rem;
+            margin-bottom: 0.8rem;
+            color: #fff;
+        }
+        input[type='text'],
+        input[type='color'] {
+            background-color: #fff;
+            border: none;
+            border-radius: 0.3rem;
+            font-size: 1.1rem;
+            padding: 1.2rem;
+            width: 100%;
+            margin-bottom: 2rem;
+        }
+        input[type='color'] {
+            height: 3rem;
+            width: 100%;
+        }
+        button {
+            background-color: #fff;
+            border: none;
+            border-radius: 0.3rem;
+            color: #292c35;
+            font-size: 1.2rem;
+            padding: 1.2rem 2.4rem;
+            transition: background-color 0.3s ease;
+            &:hover {
+                background-color: #eaeaea;
+            }
+        }
+    }
+}
