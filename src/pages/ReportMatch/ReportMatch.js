@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { savedInfo } from "../../utils/Notification";
 
 import "./reportmatchpage.scss";
 
@@ -108,23 +109,27 @@ function ReportMatch() {
       "againstPlayersEvent",
       JSON.stringify(againstPlayersEvent)
     );
+
+    savedInfo();
   };
 
   return (
     <>
       {/* UNOS REZULTATA */}
-      <div className="unosRezultata text-center">
-        <h4>Unesite rezultat utakmice</h4>
+      <div className="unosRezultata">
+        <h4 className="text-center">Unesite rezultat utakmice</h4>
 
         <div className="teams">
           <div className="firstTeam">
             <label>{myClubInfo.clubName}</label>
             <input
+            required="true"
               type="number"
               value={myClubGoals}
               className="resultInput"
               onInput={inputMyClubGoals}
               name="myClubGoals"
+              placeholder="Unesite broj golova"
               min={0}
             />
 
@@ -139,16 +144,19 @@ function ReportMatch() {
               className="resultInput"
               onInput={inputAgainstClubGoals}
               name="againstClubGoals"
+              placeholder="Unesite broj golova"
               min={0}
             />
             <div className="againstPlayerEvent">{againstPlayerInputs}</div>
           </div>
-        </div>
-      </div>
 
-      <button className="btnSavePlayers" onClick={savePlayers}>
+          <br />
+        <button className="btn btn-sm bg-dark text-white p-2" onClick={savePlayers}>
         Spremi podatke
       </button>
+        </div>
+        
+      </div>
     </>
   );
 }

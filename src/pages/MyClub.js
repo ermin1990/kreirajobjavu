@@ -1,8 +1,11 @@
 import React, { useEffect, useState } from "react";
+import {savedInfo} from "../utils/Notification.js"
 
 import '../css/myclub.scss'
 
 function MyClub() {
+
+
   const [myclubinfo, setMyClubInfo] = useState({});
 
   useEffect(() => {
@@ -21,6 +24,9 @@ function MyClub() {
   const addMyClub = (e) => {
     e.preventDefault();
     localStorage.setItem("myClub", JSON.stringify(myclubinfo));
+    
+    savedInfo();
+    
   };
 
   return (
@@ -57,6 +63,7 @@ function MyClub() {
         />
         <br />
 
+        
         <button
           onClick={addMyClub}
           className="btn btn-sm bg-dark text-white p-2"

@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { savedInfo } from "../../utils/Notification";
 
 import "./nextmatchpage.scss";
 
 function NextMatch() {
   const [leagueinfo, setLeagueInfo] = useState([]);
 
-  
+
 
   useEffect(() => {
     if (localStorage.hasOwnProperty("LS_leagueinfo")) {
@@ -22,22 +23,32 @@ function NextMatch() {
     setLeagueInfo(copyleagueinfo);
   };
 
-  
-  const addLeagueInfo = () => {
+
+  const addLeagueInfo = (e) => {
+    e.preventDefault();
+
     let copyleagueinfo = { ...leagueinfo };
     localStorage.setItem("LS_leagueinfo", JSON.stringify(copyleagueinfo));
+    savedInfo()
+
+    let dwbtn = document.getElementById("openDesignBtn");
+
+    dwbtn.style.display = "block";
+
+
   };
 
   return (
     <>
-      <div className="ligapodaci container text-center text-white">
-        <h4>Upišite podatke o utakmici</h4>
+      <div className="ligapodaci container text-white">
+        <h4 className="text-center">Upišite podatke o utakmici</h4>
 
         <form className="nextMatchDesign_form">
           <div>
             <label>Naziv lige</label>
             <br />
             <input
+              required
               type="text"
               name="leagueName"
               value={leagueinfo.leagueName}
@@ -51,11 +62,13 @@ function NextMatch() {
             <label>Kolo</label>
             <br />
             <input
+              required
               className="koloInput"
               type="number"
               value={leagueinfo.currentMatchdany}
               name="currentMatchdany"
               onInput={inputHandler}
+              placeholder="Kolo utakmice"
             />
             <br />
             <br />
@@ -64,7 +77,7 @@ function NextMatch() {
             <label>Datum i vrijeme utakmice</label>
             <br />
             <input
-            value={leagueinfo.dateAndTime}
+              value={leagueinfo.dateAndTime}
               type="datetime-local"
               name="dateAndTime"
               onInput={inputHandler}
@@ -90,20 +103,21 @@ function NextMatch() {
             <br />
 
             <select name="matchLocation" value={leagueinfo.matchLocation} onChange={inputHandler}>
+              <option value="">...</option>
               <option value="homematch">Domaćin</option>
               <option value="awaymatch">Gost</option>
             </select>
           </div>
+          <button className="btn btn-sm bg-dark text-white p-2" onClick={addLeagueInfo}>
+            Unesi podatke
+          </button>
         </form>
-        <button className="btn leagueSaveBtn" onClick={addLeagueInfo}>
-          Unesi podatke
-        </button>
+
+      </div>
+      <div id="openDesignBtn" className="text-center">
+      <Link className="btn btn-sm text-white bg-dark p-4" to="./design">Otvori dizajn</Link>
       </div>
 
-      
-
-        <Link to="./design">Otvori dizajn</Link>
-        
     </>
   );
 }

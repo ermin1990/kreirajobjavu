@@ -4,34 +4,43 @@
     left: 0;
     right: 0;
     z-index: 999;
-    background-color: #292c35;
+    background-color: #212636;
     padding: 0.5rem;
 }
 
 .navbar {
     display: flex;
+    justify-content: center;
 }
 
 .nav-link {
     color: #fff;
     font-size: 0.6rem;
+    font-weight: bold;
     text-decoration: none;
-    padding: 0.6rem;
+    padding: 0.5rem 0.9rem;
     transition: background-color 0.3s ease;
+    border-right: 1px solid rgb(118, 115, 115);
     &:hover {
         background-color: #545769;
     }
     &.active {
         background-color: #545769;
     }
+    &:last-child{
+        border-right: none;
+    }
 }
 
 @media only screen and (min-width: 768px) {
     .mainMenu {
+        width: 100%;
         position: static;
         padding: 0;
+        background-color: #292c35;
     }
     .navbar {
+        width: 100%;
         justify-content: center;
     }
     .nav-link {

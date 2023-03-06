@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from "react";
 import '../css/myclub.scss'
+import { savedInfo } from "../utils/Notification";
 
 function AgainstClub() {
+  
   const [againstclubinfo, setAgainstClub] = useState({});
 
   useEffect(() => {
@@ -20,6 +22,8 @@ function AgainstClub() {
   const addAgainstClub = (e) => {
     e.preventDefault();
     localStorage.setItem("againstClub", JSON.stringify(againstclubinfo));
+
+    savedInfo()
   };
 
   return (
@@ -44,7 +48,7 @@ function AgainstClub() {
           placeholder="npr. Mramor ili Gornje Dubrave..."
         />
         <hr />
-
+        
         <button
           onClick={addAgainstClub}
           className="btn btn-sm bg-dark text-white p-2"
