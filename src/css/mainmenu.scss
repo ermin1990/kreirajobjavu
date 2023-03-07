@@ -4,8 +4,8 @@
     left: 0;
     right: 0;
     z-index: 999;
-    background-color: #212636;
     padding: 0.5rem;
+    background-color: #54555a;
 }
 
 .navbar {
@@ -23,9 +23,11 @@
     border-right: 1px solid rgb(118, 115, 115);
     &:hover {
         background-color: #545769;
+        color: white;
     }
     &.active {
-        background-color: #545769;
+        background-color: #ededf0;
+        color: #54555a;
     }
     &:last-child{
         border-right: none;
@@ -37,7 +39,7 @@
         width: 100%;
         position: static;
         padding: 0;
-        background-color: #292c35;
+        background-color: transparent;
     }
     .navbar {
         width: 100%;

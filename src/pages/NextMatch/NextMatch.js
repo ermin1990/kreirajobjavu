@@ -2,12 +2,11 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { savedInfo } from "../../utils/Notification";
 
+
 import "./nextmatchpage.scss";
 
 function NextMatch() {
   const [leagueinfo, setLeagueInfo] = useState([]);
-
-
 
   useEffect(() => {
     if (localStorage.hasOwnProperty("LS_leagueinfo")) {
@@ -26,15 +25,15 @@ function NextMatch() {
 
   const addLeagueInfo = (e) => {
     e.preventDefault();
-
+    let info = "design";
     let copyleagueinfo = { ...leagueinfo };
     localStorage.setItem("LS_leagueinfo", JSON.stringify(copyleagueinfo));
-    savedInfo()
+    savedInfo(info)
 
-    let dwbtn = document.getElementById("openDesignBtn");
-
-    dwbtn.style.display = "block";
-
+    setTimeout(()=>{
+      window.location.href = "nextmatch/design"
+    },2000)
+    
 
   };
 
@@ -112,11 +111,11 @@ function NextMatch() {
             Unesi podatke
           </button>
         </form>
+        <div id="openDesignBtn" className="text-center">
+          <Link className="btn btn-sm text-white bg-dark p-4" to="./design">Otvori dizajn</Link>
+        </div>
+      </div>
 
-      </div>
-      <div id="openDesignBtn" className="text-center">
-      <Link className="btn btn-sm text-white bg-dark p-4" to="./design">Otvori dizajn</Link>
-      </div>
 
     </>
   );

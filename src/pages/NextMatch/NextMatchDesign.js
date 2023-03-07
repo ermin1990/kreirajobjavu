@@ -2,8 +2,6 @@ import React, { useRef } from 'react'
 import html2canvas from 'html2canvas'
 import './nextmatchdesign.scss'
 
-import vs from '../../assets/vs.png'
-
 function NextMatchDesign() {
 
   const nextMatchDesign = useRef(null);
