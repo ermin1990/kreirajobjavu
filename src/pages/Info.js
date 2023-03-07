@@ -1,4 +1,3 @@
-import Footer from "../components/Footer"
 
 function Info() {
   return (
@@ -9,7 +8,7 @@ function Info() {
         servirsa<br />za kreiranje grafičkih objava za rezultate.<br /></div>
       <br />
 
-      <div className="row justify-content-center footerHolder">
+      <div className="col col-lg-6 justify-content-center footerHolder">
             <div className="social">
                 Zapratite nas na društvenim mrežama Instagram:
                 <a href="https://www.instagram.com/kreirajObjavuZaKlub" target="blank"><b>@kreirajObjavuZaKlub</b></a><br />

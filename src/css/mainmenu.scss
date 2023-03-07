@@ -28,9 +28,14 @@
     &.active {
         background-color: #ededf0;
         color: #54555a;
+        
+    }
+    &:first-child{
+        border-radius: 0px 0px 0px 15px;
     }
     &:last-child{
         border-right: none;
+        border-radius: 0px 0px 15px 0px;
     }
 }
 
@@ -47,5 +52,6 @@
     }
     .nav-link {
         font-size: 1.2rem;
+        border-radius: 0px;
     }
 }

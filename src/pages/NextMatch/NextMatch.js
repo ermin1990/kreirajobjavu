@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { savedInfo } from "../../utils/Notification";
-
+import NextMatchDesign from "./NextMatchDesign"
 
 import "./nextmatchpage.scss";
 
@@ -24,6 +24,8 @@ function NextMatch() {
 
 
   const addLeagueInfo = (e) => {
+    let ligaBlock = document.querySelector(".ligapodaci");
+    let designBlock = document.querySelector(".nextMatchDesignHolder");
     e.preventDefault();
     let info = "design";
     let copyleagueinfo = { ...leagueinfo };
@@ -31,7 +33,8 @@ function NextMatch() {
     savedInfo(info)
 
     setTimeout(()=>{
-      window.location.href = "nextmatch/design"
+      ligaBlock.style.display = "none";
+      designBlock.style.display = "block";
     },2000)
     
 
@@ -116,7 +119,9 @@ function NextMatch() {
         </div>
       </div>
 
-
+      <div className="nextMatchDesignHolder">
+      <NextMatchDesign/>
+      </div>
     </>
   );
 }

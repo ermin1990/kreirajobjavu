@@ -151,10 +151,13 @@ function ReportMatch() {
           </div>
 
           <br />
-        <button className="btn btn-sm bg-dark text-white p-2" onClick={savePlayers}>
+        
+        </div>
+        <div className="btnHolder">
+        <button className="savePlayerBtn btn btn-sm bg-dark text-white p-2" onClick={savePlayers}>
         Spremi podatke
       </button>
-        </div>
+      </div>
         
       </div>
     </>

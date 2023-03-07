@@ -10,6 +10,8 @@ export const savedInfo = (info) => {
 
 
   if (info === "design") {
+    
+
     infomsg.innerHTML = '<span className="btn btn-success fixed-bottom p-2">Spremamo vaš dizajn <br/>Pričekajte malo...</span>'
     infomsg.classList.add('show');
 

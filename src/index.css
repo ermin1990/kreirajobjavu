@@ -43,12 +43,14 @@ header {
 .infoHolder{
     display: flex;
     padding: 5px 20px;
-    justify-content: end;
-}.infoHolder a{
+    justify-content: flex-end;
+}
+.infoHolder a{
     font-weight: bold;
     color: white;
     text-decoration: none;
-}.infoIcon{
+}
+.infoIcon{
     display: flex;
     gap:6px;
 }

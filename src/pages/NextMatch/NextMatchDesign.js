@@ -1,8 +1,41 @@
-import React, { useRef } from 'react'
+import React, {useState,useEffect, useRef } from 'react'
 import html2canvas from 'html2canvas'
 import './nextmatchdesign.scss'
 
 function NextMatchDesign() {
+  const [myClubInfo, setMyClubInfo] = useState({});
+  const [myClubGoals, setMyClubGoals] = useState();
+
+  const [againstClubInfo, setAgainstClubInfo] = useState({});
+  const [againstClubGoals, setAgainstClubGoals] = useState();
+
+  const [leagueinfo, setLeagueInfo] = useState({});
+
+  useEffect(() => {
+
+    if (localStorage.hasOwnProperty("myClub")) {
+      setMyClubInfo(JSON.parse(localStorage.getItem("myClub")));
+    }
+
+    if (localStorage.hasOwnProperty("myClubGoals")) {
+      setMyClubGoals(JSON.parse(localStorage.getItem("myClubGoals")));
+    }
+
+    if (localStorage.hasOwnProperty("againstClub")) {
+      setAgainstClubInfo(JSON.parse(localStorage.getItem("againstClub")));
+    }
+
+    if (localStorage.hasOwnProperty("againstClubGoals")) {
+      setAgainstClubGoals(JSON.parse(localStorage.getItem("againstClubGoals")));
+    }
+    
+    if (localStorage.hasOwnProperty("LS_leagueinfo")) {
+      let copyLeagueInfo = localStorage.getItem("LS_leagueinfo");
+      setLeagueInfo(JSON.parse(copyLeagueInfo));
+    }
+
+  }, [])
+  
 
   const nextMatchDesign = useRef(null);
 
@@ -16,6 +49,14 @@ function NextMatchDesign() {
     })
   }
 
+  const goToEdit=()=>{
+    let ligaBlock = document.querySelector(".ligapodaci");
+    let designBlock = document.querySelector(".nextMatchDesignHolder");
+
+    ligaBlock.style.display = "block";
+      designBlock.style.display = "none";
+  }
+
   return (
     <>
       <div className="designHolder">
@@ -24,8 +65,8 @@ function NextMatchDesign() {
             <div className="design">
 
               <div className="leagueInfoHolder">
-                <div className="leagueinfo">2 Kantontonalna Jug</div>
-                <div className="matchday">14. KOLO</div>
+                <div className="leagueinfo">{leagueinfo.leagueName}</div>
+                <div className="matchday">{leagueinfo.currentMatchdany} KOLO</div>
               </div>
 
               <div className="nextMatchHeading">
@@ -35,13 +76,13 @@ function NextMatchDesign() {
 
               <div className="teamsInfoHolder">
                 <div className="firstTeam">
-                  <div className="clubName">FK Mladost</div>
-                  <div className="clubLocation">Gornja Tuzla</div>
+                  <div className="clubName">{leagueinfo.matchLocation == "homematch" ? myClubInfo.clubName : againstClubInfo.clubName}</div>
+                  <div className="clubLocation">{leagueinfo.matchLocation == "homematch" ? myClubInfo.clubLocation : againstClubInfo.clubLocation}</div>
                 </div>
                 <div className="devider"></div>
                 <div className="secondTeam">
-                  <div className="clubName">FK Mladost 78</div>
-                  <div className="clubLocation">Kikači</div>
+                  <div className="clubName">{leagueinfo.matchLocation == "awaymatch" ? myClubInfo.clubName : againstClubInfo.clubName}</div>
+                  <div className="clubLocation">{leagueinfo.matchLocation == "awaymatch" ? myClubInfo.clubLocation : againstClubInfo.clubLocation}</div>
                 </div>
                 {/* <div className="vs"><img src={vs} alt="" /></div> */}
                 
@@ -52,7 +93,7 @@ function NextMatchDesign() {
               </div>
 
               <div className="gameLocation">
-                Stadion Kalinovac
+                {leagueinfo.gameLocation}
               </div>
 
 
@@ -63,7 +104,8 @@ function NextMatchDesign() {
         </div>
       </div>
       <div className="text-center p-4">
-      <button className='btn btn-sm bg-dark text-center text-white p-3 downloadBtn' onClick={downloadImage}>Preuzmi pripremu</button>
+      <button className='btn btn-sm bg-success text-center text-white p-3 m-2 downloadBtn' onClick={downloadImage}>Preuzmi pripremu</button>
+      <button className='btn btn-sm bg-warning text-center text-dark p-3 m-2 downloadBtn' onClick={goToEdit}>Izmjeni podatke</button>
       </div>
     </>
   )

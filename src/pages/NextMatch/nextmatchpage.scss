@@ -1,5 +1,4 @@
 .ligapodaci {
-    background-color: #292c35;
     padding: 2rem;
     h4 {
         font-size: 2.0rem;
@@ -62,6 +61,10 @@
 }
 
 #openDesignBtn{
+    display: none;
+}
+
+.nextMatchDesignHolder{
     display: none;
 }
 

@@ -1,5 +1,4 @@
     .unosRezultata {
-        background-color: #292c35;
         padding: 1rem;
         border-radius: 0.3rem;
         h4 {
@@ -13,9 +12,10 @@
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
-            gap: 20px;
+            gap: 40px;
             .firstTeam,
             .secondTeam {
+                flex-grow:1;
                 flex-basis: 45%;
                 max-width: 400px;
                 label {
@@ -42,6 +42,12 @@
                     margin-top: 10px;
                 }
             }
+        }
+
+        .btnHolder{
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
         }
         button {
             background-color: #27282d;

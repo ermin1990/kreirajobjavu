@@ -4,7 +4,6 @@ import Home from "../pages/Home";
 import MyClub from "../pages/MyClub";
 import NextMatch from "../pages/NextMatch/NextMatch";
 import ReportMatch from "../pages/ReportMatch/ReportMatch";
-import NextMatchDesign from "../pages/NextMatch/NextMatchDesign";
 import Info from "../pages/Info";
 
 const routes = [
@@ -33,10 +32,6 @@ const routes = [
                 path:"nextmatch",
                 element: <NextMatch/>
                 
-            },
-            {
-                path:"nextmatch/design",
-                element:<NextMatchDesign/>
             },
             {
                 path:"reportmatch",
