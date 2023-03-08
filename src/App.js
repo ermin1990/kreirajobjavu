@@ -14,7 +14,7 @@ function App() {
     <>
     <Header/>
     <MainMenu />
-    <div className="container justify-content-center">
+    <div className="mainConteiner container justify-content-center">
     <Outlet/>
     </div>
     <Footer/>

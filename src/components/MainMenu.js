@@ -9,11 +9,11 @@ function MainMenu() {
           <NavLink to="/" className="nav-link">
             <i className="bi bi-house"></i> Početna
           </NavLink>
-          <NavLink to="/myclub" className="nav-link">
+          {/* <NavLink to="/myclub" className="nav-link">
             <i className="bi bi-people"></i> Moj klub
-          </NavLink>
+          </NavLink> */}
           <NavLink to="/againstclub" className="nav-link">
-            <i className="bi bi-shield"></i> Protivnički
+            <i className="bi bi-shield"></i> Protivnik
           </NavLink>
           <NavLink to="/nextmatch" className="nav-link">
             <i className="bi bi-calendar-check"></i> Najava

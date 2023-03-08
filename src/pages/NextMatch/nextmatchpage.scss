@@ -1,7 +1,7 @@
 .ligapodaci {
     padding: 2rem;
     h4 {
-        font-size: 2.0rem;
+        font-size: 1.6rem;
         font-weight: bold;
         margin-bottom: 3rem;
     }
@@ -11,10 +11,9 @@
         div {
             display: flex;
             flex-direction: column;
-            margin-bottom: 0.8rem;
+            
             label {
                 font-size: 1.2rem;
-                margin-bottom: 0.2rem;
             }
             input[type='text'],
             input[type='number'],
@@ -23,31 +22,30 @@
                 border: none;
                 border-radius: 0.3rem;
                 font-size: 1.1rem;
-                padding: 1.1rem;
+                padding: 1rem;
                 width: 100%;
             }
             .koloInput {
-                width: 10rem;
+                width: 40px;
+                
             }
             select {
                 background-color: #fff;
                 border: none;
                 border-radius: 0.3rem;
                 font-size: 1.1rem;
-                padding: 1.1rem;
+                padding: 1rem;
                 width: 100%;
             }
         }
         button {
+            margin-top: 20px;
             background-color: #27282d;
             border: none;
             border-radius: 0.3rem;
             color: #fff;
             font-size: 1.2rem;
             padding: 1.2rem 2.4rem;
-            &:hover {
-                background-color: #eaeaea;
-            }
         }
     }
     
@@ -60,19 +58,12 @@
     }
 }
 
-#openDesignBtn{
-    display: none;
-}
-
-.nextMatchDesignHolder{
-    display: none;
-}
 
 @media only screen and (max-width: 768px) {
     .ligapodaci {
         padding: 1rem;
         h4 {
-            font-size: 2rem;
+            font-size: 1.3rem;
         }
         .nextMatchDesign_form {
             max-width: 100%;

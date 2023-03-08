@@ -150,11 +150,9 @@ function ReportMatch() {
             <div className="againstPlayerEvent">{againstPlayerInputs}</div>
           </div>
 
-          <br />
-        
         </div>
         <div className="btnHolder">
-        <button className="savePlayerBtn btn btn-sm bg-dark text-white p-2" onClick={savePlayers}>
+        <button className="savePlayerBtn btn btn-sm bg-success text-white p-2" onClick={savePlayers}>
         Spremi podatke
       </button>
       </div>

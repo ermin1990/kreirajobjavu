@@ -47,11 +47,10 @@ function AgainstClub() {
           onInput={inputHandler}
           placeholder="npr. Mramor ili Gornje Dubrave..."
         />
-        <hr />
         
         <button
           onClick={addAgainstClub}
-          className="btn btn-sm bg-dark text-white p-2"
+          className="btn btn-sm bg-success text-white p-2"
           type="sumbit"
         >
           Spremi podatke

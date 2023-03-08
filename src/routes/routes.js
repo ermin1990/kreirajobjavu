@@ -5,6 +5,7 @@ import MyClub from "../pages/MyClub";
 import NextMatch from "../pages/NextMatch/NextMatch";
 import ReportMatch from "../pages/ReportMatch/ReportMatch";
 import Info from "../pages/Info";
+import NextMatchDesign from "../pages/NextMatch/NextMatchDesign";
 
 const routes = [
     {
@@ -30,7 +31,13 @@ const routes = [
             },
             {
                 path:"nextmatch",
-                element: <NextMatch/>
+                element: <NextMatch/>,
+                children:[
+                    {
+                        path:"design",
+                        element: <NextMatchDesign/>
+                    }
+                ]
                 
             },
             {

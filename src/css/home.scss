@@ -1,10 +1,11 @@
 .glavniDiv {
-    padding: 2rem;
+    max-width: 800px;
+    margin: auto;
+    margin-top: 20px;
 
     .firstinfoclub {
         display: flex;
-        flex-direction: column;
-        align-items: center;
+       
 
         p {
             color: white;
@@ -20,10 +21,9 @@
     }
 
     .welcomeClub {
-        text-align: center;
 
         .clubName {
-            font-size: 3rem;
+            font-size: 2.4rem;
             margin-bottom: 0.5rem;
             color: #ffffff;
         }
@@ -50,7 +50,6 @@
 
 @media only screen and (max-width: 768px) {
     .glavniDiv {
-        padding: 1rem;
 
         .firstinfoclub {
             p {
@@ -61,7 +60,7 @@
 
         .welcomeClub {
             .clubName {
-                font-size: 2rem;
+                font-size: 1.3rem;
                 margin-bottom: 0.5rem;
             }
 

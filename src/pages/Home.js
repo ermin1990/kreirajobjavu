@@ -29,10 +29,10 @@ function Home() {
     </div>
   ) : (
     <div className="welcomeClub">
-      <h1 className="clubName">{myclub.clubName}</h1>
-      <p className="clubLocation">{myclub.clubLocation}</p>
-      <hr className="clubDivider" />
       <p className="clubGreeting">Zdravo!</p>
+      <span className="clubName">Vaš klub je: <b>{myclub.clubName}</b></span>
+      <p className="clubLocation">{myclub.clubLocation}</p>   
+      <Link to="myclub" className="btn btn-warning">Edituj informacije o klubu</Link>
     </div>
   )}
 </div>

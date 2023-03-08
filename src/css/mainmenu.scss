@@ -15,10 +15,10 @@
 
 .nav-link {
     color: #fff;
-    font-size: 0.6rem;
+    font-size: 0.8rem;
     font-weight: bold;
     text-decoration: none;
-    padding: 0.5rem 0.9rem;
+    padding: 0.1rem 0.8rem ;
     transition: background-color 0.3s ease;
     border-right: 1px solid rgb(118, 115, 115);
     &:hover {
@@ -30,13 +30,12 @@
         color: #54555a;
         
     }
-    &:first-child{
+    /* &:first-child{
         border-radius: 0px 0px 0px 15px;
-    }
+    }*/
     &:last-child{
         border-right: none;
-        border-radius: 0px 0px 15px 0px;
-    }
+    } 
 }
 
 @media only screen and (min-width: 768px) {

@@ -54,6 +54,7 @@ function MyClub() {
         />
         <hr />
         <p>Odaberite boju vašeg kluba</p>
+        <span className="badge badge-danger mb-2">Preporučujemo tamnije boje zbog boljeg dizajna.</span>
         <input
           className="inputColor form-control form-control-color"
           value={myclubinfo.clubColor}
@@ -61,12 +62,10 @@ function MyClub() {
           type="color"
           name="clubColor"
         />
-        <br />
-
-        
+                
         <button
           onClick={addMyClub}
-          className="btn btn-sm bg-dark text-white p-2"
+          className="btn btn-sm bg-success text-white p-2"
           type="sumbit"
         >
           Spremi podatke

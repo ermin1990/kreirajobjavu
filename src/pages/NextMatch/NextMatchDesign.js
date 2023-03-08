@@ -1,41 +1,54 @@
-import React, {useState,useEffect, useRef } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import html2canvas from 'html2canvas'
 import './nextmatchdesign.scss'
+import { Link } from 'react-router-dom';
+
+/* ICONS */
+import {MdStadium} from 'react-icons/md'
+import {IoMdDownload} from 'react-icons/io'
+import {AiTwotoneEdit} from 'react-icons/ai'
+
 
 function NextMatchDesign() {
   const [myClubInfo, setMyClubInfo] = useState({});
-  const [myClubGoals, setMyClubGoals] = useState();
-
   const [againstClubInfo, setAgainstClubInfo] = useState({});
-  const [againstClubGoals, setAgainstClubGoals] = useState();
-
   const [leagueinfo, setLeagueInfo] = useState({});
+  const [time, setTime] = useState("");
+  const [date, setDate] = useState("");
 
+  let ligaBlock = document.querySelector(".ligapodaci");
+  
   useEffect(() => {
 
     if (localStorage.hasOwnProperty("myClub")) {
       setMyClubInfo(JSON.parse(localStorage.getItem("myClub")));
     }
 
-    if (localStorage.hasOwnProperty("myClubGoals")) {
-      setMyClubGoals(JSON.parse(localStorage.getItem("myClubGoals")));
-    }
 
     if (localStorage.hasOwnProperty("againstClub")) {
       setAgainstClubInfo(JSON.parse(localStorage.getItem("againstClub")));
     }
 
-    if (localStorage.hasOwnProperty("againstClubGoals")) {
-      setAgainstClubGoals(JSON.parse(localStorage.getItem("againstClubGoals")));
-    }
-    
+
     if (localStorage.hasOwnProperty("LS_leagueinfo")) {
       let copyLeagueInfo = localStorage.getItem("LS_leagueinfo");
       setLeagueInfo(JSON.parse(copyLeagueInfo));
     }
 
+    
+
+    if (localStorage.hasOwnProperty("matchTime")) {
+      let matchTime = localStorage.getItem("matchTime");
+      setTime(JSON.parse(matchTime));
+    }
+
+    if (localStorage.hasOwnProperty("matchDate")) {
+      let matchDate = localStorage.getItem("matchDate");
+      setDate(JSON.parse(matchDate));
+    }
+
   }, [])
-  
+
 
   const nextMatchDesign = useRef(null);
 
@@ -49,23 +62,21 @@ function NextMatchDesign() {
     })
   }
 
-  const goToEdit=()=>{
-    let ligaBlock = document.querySelector(".ligapodaci");
-    let designBlock = document.querySelector(".nextMatchDesignHolder");
-
-    ligaBlock.style.display = "block";
-      designBlock.style.display = "none";
+  const goBack = () => {
+    ligaBlock.style.display = "block"
   }
+
 
   return (
     <>
+    <div className="designPageHolder">
       <div className="designHolder">
         <div ref={nextMatchDesign} className="designNextmatch">
-          <div className="frame">
+          <div className="frame" style={{backgroundColor: myClubInfo.clubColor+99}}>
             <div className="design">
 
               <div className="leagueInfoHolder">
-                <div className="leagueinfo">{leagueinfo.leagueName}</div>
+                <div className="leagueinfo text-uppercase">{leagueinfo.leagueName}</div>
                 <div className="matchday">{leagueinfo.currentMatchdany} KOLO</div>
               </div>
 
@@ -76,24 +87,24 @@ function NextMatchDesign() {
 
               <div className="teamsInfoHolder">
                 <div className="firstTeam">
-                  <div className="clubName">{leagueinfo.matchLocation == "homematch" ? myClubInfo.clubName : againstClubInfo.clubName}</div>
-                  <div className="clubLocation">{leagueinfo.matchLocation == "homematch" ? myClubInfo.clubLocation : againstClubInfo.clubLocation}</div>
+                  <div className="clubName">{leagueinfo.matchLocation === "homematch" ? myClubInfo.clubName : againstClubInfo.clubName}</div>
+                  <div className="clubLocation">{leagueinfo.matchLocation === "homematch" ? myClubInfo.clubLocation : againstClubInfo.clubLocation}</div>
                 </div>
                 <div className="devider"></div>
                 <div className="secondTeam">
-                  <div className="clubName">{leagueinfo.matchLocation == "awaymatch" ? myClubInfo.clubName : againstClubInfo.clubName}</div>
-                  <div className="clubLocation">{leagueinfo.matchLocation == "awaymatch" ? myClubInfo.clubLocation : againstClubInfo.clubLocation}</div>
+                  <div className="clubName">{leagueinfo.matchLocation === "awaymatch" ? myClubInfo.clubName : againstClubInfo.clubName}</div>
+                  <div className="clubLocation">{leagueinfo.matchLocation === "awaymatch" ? myClubInfo.clubLocation : againstClubInfo.clubLocation}</div>
                 </div>
                 {/* <div className="vs"><img src={vs} alt="" /></div> */}
-                
+
               </div>
 
               <div className="dateAndTimeHolder">
-                <span>20.04.2023</span>   <span className='p-1'>|</span>  <span>15:30h</span>
+                <span>{date}</span>   <span className='p-1'>|</span>  <span>{time}</span>
               </div>
 
               <div className="gameLocation">
-                {leagueinfo.gameLocation}
+                <span><MdStadium size={18}/></span> <span className='pt-1'>{leagueinfo.gameLocation}</span> 
               </div>
 
 
@@ -103,9 +114,11 @@ function NextMatchDesign() {
           </div>
         </div>
       </div>
-      <div className="text-center p-4">
-      <button className='btn btn-sm bg-success text-center text-white p-3 m-2 downloadBtn' onClick={downloadImage}>Preuzmi pripremu</button>
-      <button className='btn btn-sm bg-warning text-center text-dark p-3 m-2 downloadBtn' onClick={goToEdit}>Izmjeni podatke</button>
+    
+      <div className="text-center p-3 d-flex justify-content-center">
+        <button className='d-flex align-items-center btn btn-sm bg-success text-white p-2 m-2' onClick={downloadImage}><IoMdDownload size={24}/>Preuzmi pripremu</button>
+        <Link onClick={goBack} to="/nextmatch" className='d-flex align-items-center btn btn-sm bg-warning text-dark p-2 m-2'><AiTwotoneEdit size={24}/> Izmjeni podatke</Link>
+      </div>
       </div>
     </>
   )

@@ -6,6 +6,12 @@ body {
     /* background: linear-gradient(82deg, rgba(13, 66, 110, 1) 0%, rgba(0, 49, 73, 1) 100%); */
 }
 
+.mainConteiner{
+    display: flex;
+    max-width: 800px;
+    justify-content: center;
+}
+
 
 
 header {
@@ -43,7 +49,7 @@ header {
 .infoHolder{
     display: flex;
     padding: 5px 20px;
-    justify-content: flex-end;
+    justify-content:space-between;
 }
 .infoHolder a{
     font-weight: bold;
@@ -51,6 +57,10 @@ header {
     text-decoration: none;
 }
 .infoIcon{
+    display: flex;
+    gap:6px;
+}
+.myClubIcon{
     display: flex;
     gap:6px;
 }
@@ -94,14 +104,23 @@ header {
 }
 
 @media(max-width: 800px) {
+
+    .mainConteiner{
+        display: block;
+        max-width: 800px;
+        justify-content: center;
+    }
+
     .logo {
         display: flex;
         align-items: center;
         padding: 5px 20px;
-        font-size: 1.6rem;
+        font-size: 1.4rem;
         font-weight: 700;
         margin-bottom: 10px;
     }
+    .logo img{
+        height: 90px;}
     button {
         width: max-content + 10px;
     }
