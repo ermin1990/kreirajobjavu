@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { Outlet, useNavigate } from "react-router-dom";
 import { savedInfo } from "../../utils/Notification";
 
 import "./reportmatchpage.scss";
@@ -11,6 +12,13 @@ function ReportMatch() {
   const [againstClubInfo, setAgainstClubInfo] = useState({});
   const [againstClubGoals, setAgainstClubGoals] = useState();
   const [againstPlayersEvent, setAgainstPlayersEvent] = useState({});
+
+
+  let unosRezultataDiv = document.querySelector(".unosRezultata")
+
+
+  const navigate = useNavigate();
+
 
   useEffect(() => {
     if (localStorage.hasOwnProperty("myClub")) {
@@ -88,29 +96,36 @@ function ReportMatch() {
   };
 
   const againstPlayerInputs = [];
+    for (let i = 0; i < againstClubGoals; i++) {
+      againstPlayerInputs.push(
+        <input
+          /* value={`${againstPlayersEvent["player" + (i + 1)]}`} */
+          key={`player${i + 1}`}
+          className="player"
+          name={`player${i + 1}`}
+          placeholder={`Ime i prezime za ${i + 1}.gol`}
+          onInput={againstPlayerInput}
+        />
+      );
+    }
 
-  for (let i = 0; i < againstClubGoals; i++) {
-    againstPlayerInputs.push(
-      <input
-        /* value={`${againstPlayersEvent["player" + (i + 1)]}`} */
-        key={`player${i + 1}`}
-        className="player"
-        name={`player${i + 1}`}
-        placeholder={`Ime i prezime za ${i + 1}.gol`}
-        onInput={againstPlayerInput}
-      />
-    );
-  }
+  
 
   const savePlayers = () => {
-    
+
+    localStorage.removeItem("myPlayersEvent")
+    localStorage.removeItem("againstPlayersEvent")
+
     localStorage.setItem("myPlayersEvent", JSON.stringify(myPlayersEvent));
     localStorage.setItem(
       "againstPlayersEvent",
       JSON.stringify(againstPlayersEvent)
     );
 
-    savedInfo();
+    savedInfo("design");
+    setTimeout(()=>{
+      navigate('/reportdesign', {replace:true})
+    },2000)
   };
 
   return (
@@ -158,6 +173,7 @@ function ReportMatch() {
       </div>
         
       </div>
+
     </>
   );
 }

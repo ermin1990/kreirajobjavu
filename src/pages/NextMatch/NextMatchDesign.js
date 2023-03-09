@@ -57,7 +57,7 @@ function NextMatchDesign() {
       const imgData = canvas.toDataURL('image/png')
       const downloadLink = document.createElement('a');
       downloadLink.href = imgData;
-      downloadLink.download = 'Next_Match_Design.png'
+      downloadLink.download = `Najava-${myClubInfo.clubName}-${againstClubInfo.clubName}.png`
       downloadLink.click();
     })
   }
@@ -73,7 +73,7 @@ function NextMatchDesign() {
       <div className="designHolder">
         <div ref={nextMatchDesign} className="designNextmatch">
           <div className="frame" style={{backgroundColor: myClubInfo.clubColor+99}}>
-            <div className="design">
+            <div className="design" style={{borderColor: myClubInfo.clubColor}}>
 
               <div className="leagueInfoHolder">
                 <div className="leagueinfo text-uppercase">{leagueinfo.leagueName}</div>

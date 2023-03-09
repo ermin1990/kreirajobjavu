@@ -6,46 +6,53 @@ import NextMatch from "../pages/NextMatch/NextMatch";
 import ReportMatch from "../pages/ReportMatch/ReportMatch";
 import Info from "../pages/Info";
 import NextMatchDesign from "../pages/NextMatch/NextMatchDesign";
+import ReportMatchDesign from "../pages/ReportMatch/ReportMatchDesign";
 
 const routes = [
     {
-        path:"/",
-        element: <App/>,
-        children:[
+        path: "/",
+        element: <App />,
+        children: [
             {
                 path: "",
-                element: <Home/>
+                element: <Home />
             }
             ,
             {
                 path: "info",
-                element: <Info/>
+                element: <Info />
             },
             {
                 path: "myclub",
-                element: <MyClub/>
+                element: <MyClub />
             },
             {
                 path: "againstclub",
-                element: <AgainstClub/>
+                element: <AgainstClub />
             },
             {
-                path:"nextmatch",
-                element: <NextMatch/>,
-                children:[
+                path: "nextmatch",
+                element: <NextMatch />,
+                children: [
                     {
-                        path:"design",
-                        element: <NextMatchDesign/>
+                        path: "design",
+                        element: <NextMatchDesign />
                     }
                 ]
-                
+
             },
             {
-                path:"reportmatch",
-                element:<ReportMatch/>
-            }
-            ]
-            }
+                path: "reportmatch",
+                element: <ReportMatch />,
+
+            },
+            {
+                path: "reportdesign",
+                element: <ReportMatchDesign />
+            },
         ]
+    }
+
+]
 
 export default routes

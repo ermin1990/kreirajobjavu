@@ -130,8 +130,7 @@ function NextMatch() {
         </form>
         
       </div>
-
-      <Outlet/>
+    <Outlet/>
     </>
   );
 }
