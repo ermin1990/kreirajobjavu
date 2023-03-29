@@ -125,7 +125,7 @@ function NextMatch() {
             </select>
           </div>
           <button className="btn btn-sm bg-success text-white p-2" onClick={addLeagueInfo}>
-            Unesi podatke
+            Spremi podatke
           </button>
         </form>
         

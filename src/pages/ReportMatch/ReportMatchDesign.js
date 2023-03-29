@@ -26,6 +26,7 @@ function ReportMatchDesign() {
   const [myPlayersEvent, setMyPlayersEvent] = useState({});
   const [againstPlayersEvent, setAgainstPlayersEvent] = useState({});
 
+  const [fontSize, setFontSize] = useState();
 
   useEffect(() => {
 
@@ -70,6 +71,10 @@ function ReportMatchDesign() {
       setAgainstPlayersEvent(JSON.parse(againstPlayersEvent))
     }
 
+    let fontSizeText = document.querySelector(".clubName");
+    let computedFontSize = window.getComputedStyle(fontSizeText).getPropertyValue("font-size");
+    setFontSize(parseFloat(computedFontSize));
+
   }, [])
 
 
@@ -83,7 +88,7 @@ function ReportMatchDesign() {
       downloadLink.download = `Rezultat-Kolo-${leagueinfo.currentMatchdany}-${myClubInfo.clubName}.png`
       downloadLink.click();
     })
-  }
+  }  
 
 
 
@@ -98,6 +103,14 @@ function ReportMatchDesign() {
   })
 
 
+  const increaseFontSize = () => {
+    setFontSize(prevSize => prevSize + 0.5);
+  }
+
+  const decreaseFontSize = () => {
+    setFontSize(prevSize => prevSize - 0.5);
+  }
+
 
 
 
@@ -108,14 +121,18 @@ function ReportMatchDesign() {
           <div ref={nextMatchDesign} className="designNextmatchR">
             
               <div className="designR" style={{ borderColor: myClubInfo.clubColor, backgroundColor: myClubInfo.clubColor + 99 }}>
-
+                
                 <div className="leagueInfoHolderR">
                   <div className="leagueinfo text-uppercase">{leagueinfo.leagueName}</div>
                   <div className="matchday">{leagueinfo.currentMatchdany} KOLO</div>
                 </div>
 
+                <div className="gameLocation">
+                  <span>{date} {time} - {leagueinfo.gameLocation}</span>
+                </div>
+
                 <div className="nextMatchHeading">
-                  REZULTAT
+                {myClubGoals > againstClubGoals ? "Pobjeda" : myClubGoals < againstClubGoals ? "Poraz" : "Neriješeno"}
                 </div>
 
 
@@ -127,7 +144,7 @@ function ReportMatchDesign() {
                       {leagueinfo.matchLocation === "homematch" ? myClubGoals : againstClubGoals}
                     </div>
                     <div className="teamInfo">
-                      <div className="clubName">{leagueinfo.matchLocation === "homematch" ? myClubInfo.clubName : againstClubInfo.clubName}</div>
+                      <div className="clubName" style={{fontSize:`${fontSize}px`}}>{leagueinfo.matchLocation === "homematch" ? myClubInfo.clubName : againstClubInfo.clubName}</div>
                     </div>
                     <div className="clubScorer">
                       {leagueinfo.matchLocation === "homematch" ? myPlayersList : againstPlayersList}
@@ -141,7 +158,7 @@ function ReportMatchDesign() {
                       {leagueinfo.matchLocation === "awaymatch" ? myClubGoals : againstClubGoals}
                     </div>
                     <div className="teamInfo">
-                      <div className="clubName">{leagueinfo.matchLocation === "awaymatch" ? myClubInfo.clubName : againstClubInfo.clubName}</div>
+                      <div className="clubName" style={{fontSize:`${fontSize}px`}}>{leagueinfo.matchLocation === "awaymatch" ? myClubInfo.clubName : againstClubInfo.clubName}</div>
 
                     </div>
                     <div className="clubScorer">
@@ -151,11 +168,10 @@ function ReportMatchDesign() {
                 </div>
 
 
+                
 
-
-                <div className="gameLocation ">
-                  <span>{date}</span>   <span>-</span>  <span>{time}</span>
-                  - <span>{leagueinfo.gameLocation}</span>
+                <div className="designBy">
+                  Dizajniraj i ti objavu za svoj klub: www.kreirajobjavu.netlify.app
                 </div>
 
               </div>
@@ -163,6 +179,12 @@ function ReportMatchDesign() {
             
           </div>
         </div>
+
+        <div className="text-center mt-2">
+        <p className='smanjiFont text-white'>Ukoliko text naziva kluba prelazi u dva reda ili je prevelik, korigujte ga ovdje.</p>
+      <button className='btn btn-sm bg-success text-white m-1' onClick={increaseFontSize}>Povećaj font</button>
+      <button className='btn btn-sm bg-danger text-white m-1' onClick={decreaseFontSize}>Smanji font</button>
+      </div>
 
         <div className="text-center p-3 d-flex justify-content-center">
           <button className='d-flex align-items-center btn btn-sm bg-success text-white p-2 m-2' onClick={downloadImage}><IoMdDownload size={24} />Preuzmi pripremu</button>

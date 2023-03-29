@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Outlet, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { savedInfo } from "../../utils/Notification";
 
 import "./reportmatchpage.scss";
@@ -14,8 +14,8 @@ function ReportMatch() {
   const [againstPlayersEvent, setAgainstPlayersEvent] = useState({});
 
 
-  let unosRezultataDiv = document.querySelector(".unosRezultata")
-
+ /*  let unosRezultataDiv = document.querySelector(".unosRezultata") */
+ 
 
   const navigate = useNavigate();
 
@@ -46,6 +46,9 @@ function ReportMatch() {
         JSON.parse(localStorage.getItem("againstPlayersEvent"))
       );
     }
+
+    
+
   }, []);
 
   /* MY PLAYER INPUTS */
@@ -108,6 +111,9 @@ function ReportMatch() {
         />
       );
     }
+
+
+   
 
   
 
@@ -173,6 +179,8 @@ function ReportMatch() {
       </div>
         
       </div>
+
+      
 
     </>
   );

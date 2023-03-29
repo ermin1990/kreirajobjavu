@@ -1,187 +1,173 @@
-.designHolder {
-    margin: auto;
-    width: 800px;
-    height: 800px;
-    display: flex;
-    justify-content: center;
-}
-.designPageHolder{
-    margin-top: 10px;
-}
-
-.designNextmatch {
-    background-image: url("../../../public/assets/Najavautakmice.png");
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-
-    width: 800px;
-    height: 800px;
-
-}
-
-.design {
-    width: 800px;
-    height: 800px;
-    z-index: 99;
-    text-align: center;
-    justify-content: center;
-    border: 10px solid;
-
-    .leagueInfoHolder {
-        padding-top: 50px;
-        color: white;
-        margin-bottom: 40px;
-
-        .leagueinfo {
-            font-size: 2.2rem;
-        }
-
-        .matchday {
-            font-weight: bolder;
-            font-size: 1.6rem;
-        }
-    }
-
-    .nextMatchHeading {
-        font-size: 2.3rem;
+    .designHolder {
         margin: auto;
-        width: fit-content;
-        padding: 6px 20px 2px 20px;
-        border: 6px solid rgb(244, 238, 53);
-        font-weight: bolder;
-        color: white;
-    }
-
-    .teamsInfoHolder {
-        margin-top: 40px;
-
-        justify-content: center;
-        align-items: start;
-
-        .devider {
-            display: none;
-            margin: 20px auto 10px auto;
-            width: 50%;
-            height: 10px;
-            background-color: yellow;
-        }
-
-        .firstTeam,
-        .secondTeam {
-
-            .clubName {
-                font-size: 6.2rem;
-                color: white;
-                font-weight: bolder;
-
-            }
-
-            .clubLocation {
-                margin-top: -30px;
-                color: white;
-            }
-
-        }
-    }
-
-    .dateAndTimeHolder {
-        font-weight: 600;
-        width: max-content;
-        border: 1px solid white;
-        margin: 40px auto 10px auto;
-        padding: 10px 30px;
-        border-radius: 15px;
-        background-color: white;
-        font-size: 2rem;
-        
-        
-    }
-
-    .gameLocation {
-        color: white;
-        font-size: 1.5rem;
+        width: 800px;
+        height: 800px;
         display: flex;
         justify-content: center;
-        gap: 5px;
     }
-}
-
-@media only screen and (max-width: 480px) {
-
-    /* promjene za mobilne ekrane */
-    .designHolder {
-
-        width: 360px;
-        height: 360px;
-
+    
+    .designPageHolder {
+        margin-top: 10px;
     }
-
+    
     .designNextmatch {
-        width: 340px;
-        height: 340px;
-
-        .frame {
-            background-size:430px;
-            width: 340px;
-            height: 340px;
-        }
+        background-image: url("../../../public/assets/Najavautakmice.png");
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        width: 800px;
+        height: 800px;
     }
-
+    
+    .smanjiFont {
+        font-size: x-small;
+    }
+    
     .design {
-        width: 340px;
-        height: 340px;
-        border: 6px solid;
+        width: 800px;
+        height: 800px;
+        z-index: 99;
+        text-align: center;
+        justify-content: center;
+        border: 10px solid;
+        background: radial-gradient(circle, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.273) 50%, rgb(0, 0, 0) 100%);
+        .designBy {
+            position: relative;
+            bottom: -10px;
+            text-align: center;
+            color: rgba(255, 255, 255, 0.781);
+            font-size: x-small;
+        }
         .leagueInfoHolder {
-            padding-top: 20px;
-            margin-bottom: 20px;
-
+            padding-top: 50px;
+            color: white;
+            margin-bottom: 40px;
             .leagueinfo {
-                font-size: 1.2rem;
+                font-size: 2.6rem;
             }
-
             .matchday {
-                font-size: 1rem;
+                font-weight: bolder;
+                font-size: 1.6rem;
             }
         }
-
         .nextMatchHeading {
-            font-size: 1rem;
-            padding: 4px 10px 2px 10px;
-            border-width: 4px;
+            font-size: 2.3rem;
+            margin: auto;
+            width: fit-content;
+            padding: 6px 20px 2px 20px;
+            border: 6px solid rgb(244, 238, 53);
+            font-weight: bolder;
             color: white;
         }
-
         .teamsInfoHolder {
-            margin-top: 10px;
-
+            margin-top: 40px;
+            justify-content: center;
+            align-items: start;
             .devider {
                 display: none;
+                margin: 20px auto 10px auto;
+                width: 50%;
+                height: 10px;
+                background-color: yellow;
             }
-
             .firstTeam,
             .secondTeam {
                 .clubName {
-                    font-size: 2.3rem;
-                    margin-bottom: 18px;
-                    margin-bottom: 18px;
+                    font-size: 5.6rem;
+                    color: white;
+                    font-weight: bolder;
                 }
-
                 .clubLocation {
-                    font-size: 0.6rem;
+                    margin-top: -30px;
+                    color: white;
                 }
             }
         }
-
         .dateAndTimeHolder {
-            margin: 20px auto 5px auto;
-            padding: 4px 15px;
-            font-size: 0.6rem;
+            font-weight: 600;
+            width: max-content;
+            border: 1px solid white;
+            margin: 40px auto 10px auto;
+            padding: 10px 30px;
+            border-radius: 9px;
+            background-color: white;
+            font-size: 2rem;
         }
-
         .gameLocation {
-            font-size: 0.6rem;
+            color: white;
+            font-size: 1.5rem;
+            display: flex;
+            justify-content: center;
+            gap: 5px;
         }
     }
-}
-
+    
+    @media only screen and (max-width: 480px) {
+        /* promjene za mobilne ekrane */
+        .designHolder {
+            width: 360px;
+            height: 360px;
+        }
+        .designNextmatch {
+            width: 340px;
+            height: 340px;
+            .frame {
+                background-size: 430px;
+                width: 340px;
+                height: 340px;
+            }
+        }
+        .design {
+            width: 340px;
+            height: 340px;
+            border: 6px solid;
+            .designBy {
+                position: relative;
+                bottom: -13px;
+                text-align: center;
+                color: rgba(255, 255, 255, 0.781);
+                font-size: 0.25rem;
+            }
+            .leagueInfoHolder {
+                padding-top: 20px;
+                margin-bottom: 10px;
+                .leagueinfo {
+                    font-size: 1.2rem;
+                }
+                .matchday {
+                    font-size: 1rem;
+                }
+            }
+            .nextMatchHeading {
+                font-size: 1rem;
+                padding: 4px 10px 2px 10px;
+                border-width: 4px;
+                color: white;
+            }
+            .teamsInfoHolder {
+                margin-top: 5px;
+                .devider {
+                    display: none;
+                }
+                .firstTeam,
+                .secondTeam {
+                    .clubName {
+                        font-size: 2.3rem;
+                        margin-bottom: 18px;
+                    }
+                    .clubLocation {
+                        font-size: 0.4rem;
+                    }
+                }
+            }
+            .dateAndTimeHolder {
+                margin: 8px auto 5px auto;
+                padding: 4px 15px;
+                font-size: 0.8rem;
+                border-radius: 3px;
+            }
+            .gameLocation {
+                font-size: 0.6rem;
+            }
+        }
+    }

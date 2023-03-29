@@ -16,6 +16,8 @@ function NextMatchDesign() {
   const [time, setTime] = useState("");
   const [date, setDate] = useState("");
 
+  const [fontSize, setFontSize] = useState();
+
   let ligaBlock = document.querySelector(".ligapodaci");
   
   useEffect(() => {
@@ -47,7 +49,24 @@ function NextMatchDesign() {
       setDate(JSON.parse(matchDate));
     }
 
+        
+    let fontSizeTexts = document.querySelector(".clubName");
+    let computedFontSize = window.getComputedStyle(fontSizeTexts).getPropertyValue("font-size");
+    setFontSize(parseFloat(computedFontSize));
+    
+    
+
   }, [])
+
+  
+  const increaseFontSize = () => {
+    setFontSize(prevSize => prevSize + 0.5);
+  }
+
+  const decreaseFontSize = () => {
+    setFontSize(prevSize => prevSize - 0.5);
+  }
+  
 
 
   const nextMatchDesign = useRef(null);
@@ -87,32 +106,43 @@ function NextMatchDesign() {
 
               <div className="teamsInfoHolder">
                 <div className="firstTeam">
-                  <div className="clubName">{leagueinfo.matchLocation === "homematch" ? myClubInfo.clubName : againstClubInfo.clubName}</div>
+                  <div className="clubName" style={{fontSize:`${fontSize}px`}}>{leagueinfo.matchLocation === "homematch" ? myClubInfo.clubName : againstClubInfo.clubName}</div>
                   <div className="clubLocation">{leagueinfo.matchLocation === "homematch" ? myClubInfo.clubLocation : againstClubInfo.clubLocation}</div>
                 </div>
                 <div className="devider"></div>
                 <div className="secondTeam">
-                  <div className="clubName">{leagueinfo.matchLocation === "awaymatch" ? myClubInfo.clubName : againstClubInfo.clubName}</div>
+                  <div className="clubName"style={{fontSize:`${fontSize}px`}}>{leagueinfo.matchLocation === "awaymatch" ? myClubInfo.clubName : againstClubInfo.clubName}</div>
                   <div className="clubLocation">{leagueinfo.matchLocation === "awaymatch" ? myClubInfo.clubLocation : againstClubInfo.clubLocation}</div>
                 </div>
                 {/* <div className="vs"><img src={vs} alt="" /></div> */}
 
               </div>
 
+            
               <div className="dateAndTimeHolder">
-                <span>{date}</span>   <span className='p-1'>|</span>  <span>{time}</span>
+                <span>{date}</span>   -  <span>{time}</span>
               </div>
 
               <div className="gameLocation">
                 <span><MdStadium size={18}/></span> <span className='pt-1'>{leagueinfo.gameLocation}</span> 
               </div>
 
+              <div className="designBy">
+                  Dizajniraj i ti objavu za svoj klub: www.kreirajobjavu.netlify.app
+                </div>
 
+              </div>
 
-            </div>
+            
 
           </div>
         </div>
+      </div>
+
+      <div className="text-center mt-2">
+        <p className='smanjiFont text-white'>Ukoliko text naziva kluba prelazi u dva reda ili je prevelik, korigujte ga ovdje.</p>
+      <button className='btn btn-sm bg-success text-white m-1' onClick={increaseFontSize}>Povećaj font</button>
+      <button className='btn btn-sm bg-danger text-white m-1' onClick={decreaseFontSize}>Smanji font</button>
       </div>
     
       <div className="text-center p-3 d-flex justify-content-center">
@@ -120,8 +150,9 @@ function NextMatchDesign() {
         <Link onClick={goBack} to="/nextmatch" className='d-flex align-items-center btn btn-sm bg-warning text-dark p-2 m-2'><AiTwotoneEdit size={24}/> Izmjeni podatke</Link>
       </div>
       </div>
+      
     </>
   )
 }
 
-export default NextMatchDesign
+export default NextMatchDesign;
